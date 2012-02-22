@@ -17,7 +17,7 @@
               <script type="text/javascript" language="javascript" src="lib/jquery/jquery-1.6.2.min.js"></script>
               <script type="text/javascript" language="javascript" src="lib/jquery/jquery-ui-1.8.5.custom/js/jquery-ui-1.8.5.custom.min.js"></script>
               <script type="text/javascript" language="javascript" src="lib/jquery/jquery-ui-1.8.5.custom/development-bundle/ui/jquery.ui.mouse.js"></script>
-
+              <script type="text/javascript" language="javascript" src="lib/islandora/startup.js"></script>
               <script type="text/javascript" language="javascript" src="lib/jquery/plugins/DataTables-1.7.6/media/js/jquery.dataTables.min.js"></script>
               <script type="text/javascript" language="javascript" src="lib/jquery/plugins/jgcharts/jgcharts.pack.js"></script>
               <script src="lib/jquery/plugins/jquery.pngFix.pack.js" type="text/javascript"></script>
@@ -28,6 +28,7 @@
               <script type="text/javascript" src="lib/VectorDrawer_1.0/VectorDrawer.js"></script>
               <script type="text/javascript" src="tile.js"></script>
 
+
               <script type="text/javascript" src="lib/jquery/plugins/colorpicker/js/colorpicker.js"></script>
               <script type="text/javascript" src="lib/jquery/plugins/colorpicker/js/eye.js"></script>
               <script type="text/javascript" src="lib/jquery/plugins/colorpicker/js/utils.js"></script>
@@ -37,32 +38,14 @@
               </head>
               <body>
                 <script type ="text/javascript">
-                  function getUrlVars()
-                  {
-                    var vars = [], hash;
-                    var hashes = window.location.href.slice(window.location.href.indexOf('?') + 1).split('&');
-                    for(var i = 0; i < hashes.length; i++)
-                    {
-                      hash = hashes[i].split('=');
-                      vars.push(hash[0]);
-                      vars[hash[0]] = hash[1];
-                    }
-                    return vars;
-                  }
-                  pairs = getUrlVars();
-
-
-
+                  PID = "<?php echo $_POST['PID']; ?>";             
                 </script>
-                <div class="az header"><div class="az logo"><img src="skins/default/images/tile.gif" alt="TILE: Text-Image Linking Environment" /></div>
+                <div class="az header"><div class="az logo"></div>
                   <div id="azglobalmenu" class="az globalmenu">
                     <div class="globalbuttons">
                       <div class="modeitems"></div>
                       <div class="dataitems"></div>
-                      <div class="misc">
-                        <div class="menuitem"><span class="version">version 1.0</span></div>
-                        <div class="menuitem"><a id="tilehelp" title="Go to the TILE documentation page" href="http://mith.umd.edu/tile/documentation">Documentation</a></div>
-                      </div>
+                
                     </div>
                   </div>
                 </div>
@@ -82,15 +65,18 @@
                   <div id="az_activeBox" class="az activeBox"></div>
                   <div id="azcontentarea" class="az content"></div>
                   <script type="text/javascript">
+                    doc = $('document');
                     var engine=null;
 
                     // set verbose mode either true (on) or false (off)
                     __v=false;
+                    
 
                     $(function(){
 
                       // Initialize Core Functions and Objects:
-                      engine=new TILE_ENGINE({"TILE.preload":"http://localhost/Tile/?file=http://localhost:8080/fedora/objects/islandora:1619/datastreams/TILE_JSON/content"});
+                      engine=new TILE_ENGINE({});
+                     
 
                       // Image Annotation Mode
                       //engine.insertMode('Image Annotation');
@@ -113,7 +99,7 @@
                       // CoreData Plugin
                       engine.insertPlugin('CoreData');
                       // AutoLoad Plugin
-                      engine.insertPlugin('AutoLoad');
+                      engine.insertPlugin('AutoLoadEmic');
 
                       // Welcome Dialog Plugin (not loaded by default)
                       // engine.insertPlugin('WelcomeDialog');

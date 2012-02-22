@@ -64,7 +64,7 @@ body {
 	font-family:Helvetica, Arial, Verdana, sans-serif;
 	font-size:90%;
 	line-height:1.5em;
-	background:#fffaef url('../images/bkgd.gif');
+	/*background:#fffaef url('../images/bkgd.gif');  */
 }
 .az {
 	bottom:0;
@@ -190,7 +190,7 @@ a:hover {
 .main {
 	height: auto;
 	opacity: 1;
- 	top: 87px;
+ 	  /*top: 87px;  */
  	z-index: 1;
 }
 .log {
@@ -312,6 +312,7 @@ a.btnIconLarge:hover {
 	margin:0;
 	cursor:pointer;	
 	width:auto;
+        
 }
 .button.inactive, .button.inactive:hover {
 	color:#c7c3b5;
@@ -1321,4 +1322,8 @@ a.btnIconLarge:hover {
 }
 .dashboard_footer p{
 	text-decoration:underline;
+}
+
+.modeitems{
+  display:none;
 }

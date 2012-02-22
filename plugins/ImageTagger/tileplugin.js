@@ -456,7 +456,7 @@ var SHAPE_ATTRS = {"stroke-width": "1px", "stroke": "#a12fae"};
 			this.zoomIn=$("#zoomIn");
 			this.zoomIn.click(function(e){
 				$("body:first").trigger("zoom",[1]);
-                                alert('line 459');
+                               
 			});
 			this.zoomOut=$("#zoomOut");
 			this.zoomOut.click(function(e){

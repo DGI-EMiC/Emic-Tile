@@ -20,7 +20,6 @@ var AutoLoad={
 		// get data from config file
 		// and set the TILE.preLoad variable
 		// to results
-                var file = pairs['file'];
 		TILE.preLoad=$.ajax({
 			url:'./plugins/AutoLoad/autoLoadConfig.php?file=' + file,
 			dataType:'text',
